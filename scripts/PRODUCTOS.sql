@@ -1,3 +1,4 @@
+drop table Productos
 
 create table Productos(
 	codigo int not null,
