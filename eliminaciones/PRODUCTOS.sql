@@ -10,23 +10,22 @@ create table Productos(
 	constraint Productos_pk primary key(codigo)
 )
 
-insert into Productos (codigo,nombre,detalles,precio,stock) values
- (104,'manzanaVerde','fruta',4,25),
- (103,'manzana','fruta',3,105),
- (102,'uva','fruta',2,35),
- (101,'pera','fruta',2,40),
- (100,'guayaba','fruta',3,50);
+INSERT INTO productos (codigo, nombre, detalles, precio, stock) VALUES 
+(1, 'Jabón', 'Lava todo', 3.50, 10),
+(2, 'Shampoo', 'Savital', 2.50, 20),
+(3, 'Deja', 'Deja', 1.50, 30),
+(4, 'Pasta dental', 'Fortident', 3.0, 40),
+(5, 'Cera', 'Cera de piso', 2.50, 50);
 
-insert into Productos (codigo,nombre,precio,stock) values 
-	(107,'tomate',0.5,45),
-	(106,'Sapallo',5.20,30),
-	(105,'Sandia',5.50,25);
+INSERT INTO productos (codigo, nombre, precio, stock) VALUES
+(6, 'Pan', 1.50, 50),
+(7, 'Queso', 5.50, 60),
+(8, 'Leche', 2.50, 70),
+(9, 'Jamon', 1.00, 120),
+(10, 'Coca Cola', 3.50, 300);
 
-select * from Productos where nombre like '%Q%'
-select * from Productos where detalles is null
-select * from Productos where precio >= '2' and precio <= '3'
+select * from productos
 
-update Productos set stock=0 where detalles is null
-select * from Productos
-
-delete from Productos where detalles is null
+select * from productos where stock = 10 and precio<'10'
+select (nombre,stock) from productos where nombre like '%m%' or detalles is null
+select (nombre) from productos where detalles is null or stock=0

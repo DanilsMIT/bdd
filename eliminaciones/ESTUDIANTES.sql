@@ -11,21 +11,21 @@ create table students(
 	constraint students_pk primary key(CI)
 )
 
-insert into students (CI, nombre, apellido, email, birth_date) values
-('1234567890', 'Julián', 'Martínez', 'julian.martinez@example.com', '2000-01-15'),
-('0987654321', 'María', 'Gómez', 'maria.gomez@example.com', '1999-02-20'),
-('1122334455', 'Carlos', 'López', 'carlos.lopez@example.com', '1998-03-10'),
-('2233445566', 'Ana', 'Pérez', 'ana.perez@example.com', '2001-04-05'),
-('3344556677', 'Luis', 'Sánchez', 'luis.sanchez@example.com', '2002-05-12'),
-('4455667788', 'Sofía', 'Ramírez', 'sofia.ramirez@example.com', '2000-06-01'),
-('5566778899', 'Diego', 'Hernández', 'diego.hernandez@example.com', '1997-07-20'),
-('6677889900', 'Clara', 'Fernández', 'clara.fernandez@example.com', '1996-08-15');
+INSERT INTO students (CI, nombre, apellido, email, birth_date) VALUES 
+(1835326801, 'Pablo', 'Martínez', 'raumart01@gmail.com', '04/02/2003');
+(1235476801, 'Raul', 'Martínez', 'raumart01@gmail.com', '04/02/2003'),
+(1735476802, 'Mario', 'Guaman', 'MarioG25@gmail.com', '08/12/2000'),
+(1235476803, 'Roberto', 'Quishpe', 'RobQuishpe64@gmail.com', '29/06/2005'),
+(1735476804, 'Paul', 'Noguera', 'PaulNog55@gmail.com', '22/07/2002'),
+(1235476805, 'Marcelo', 'Ramos', 'MarceloR72@gmail.com', '15/08/2008'),
+(1735476806, 'Anthony', 'Agual', 'KAgual22@gmail.com', '25/03/2002'),
+(1235476807, 'Paula', 'Celi', 'PauCeli31@gmail.com', '30/09/2010'),
+(1735476808, 'Mónica', 'Martínez', 'MoniMar15@gmail.com', '22/01/2001'),
+(1235476809, 'Anabel', 'Perlaza', 'WPerlaza18@gmail.com', '12/04/2000'),
+(1735476810, 'Sofía', 'Jimenez', 'SofiJz22@gmail.com', '22/01/2001');
 
-select (nombre,CI) from students
-select (nombre) from students where CI like '1%'
-select (nombre,apellido) from students where nombre like 'A%'
-
-update students set apellido='Hernandez' where CI like '1%'
 select * from students
 
-delete from students where CI like '5%'
+select (nombre,apellido) from students where nombre like 'M%' or nombre like '%Z'
+select (nombre) from students where CI like '%32%' and CI like '18%'
+select (nombre,apellido) from students where CI like '%06' or CI like '17&'

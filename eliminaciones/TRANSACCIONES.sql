@@ -5,32 +5,39 @@ create table transacciones(
 	account_number char(5) not null,
 	mont money not null,
 	tipo char(1) not null,
-	fecha date not null,
+	fecha date,
 	hora time not null,
 
 	constraint transacciones_PK primary key(code)
 )
 
-insert into transacciones (code, account_number, mont, tipo, fecha, hora) values
-(1, '12345', 1000, 'C', '2023-01-01', '10:00:00'),
-(2, '67890', 500, 'D', '2023-01-02', '11:00:00'),
-(3, '23456', 750, 'C', '2023-01-03', '12:30:00'),
-(4, '78901', 300, 'D', '2023-01-04', '14:00:00'),
-(5, '34567', 1200, 'C', '2023-01-05', '09:15:00'),
-(6, '89012', 450, 'D', '2023-01-06', '16:45:00'),
-(7, '45678', 650, 'C', '2023-01-07', '08:30:00'),
-(8, '90123', 200, 'D', '2023-01-08', '10:30:00'),
-(9, '56789', 900, 'C', '2023-01-09', '13:00:00'),
-(10, '01234', 300, 'D', '2023-01-10', '15:45:00');
+INSERT INTO transacciones (code, account_number, mont, tipo, fecha, hora) VALUES 
+(48785, '22003', 200, 'D', '27/05/2023', '23:30');
+(78785, '22008', 200, 'D', '25/05/2023', '23:30');
+(78945, '75369', 200, 'C', '20/09/2023', '23:30'),
+(53147, '32102', 500.65, 'D', '15/06/2022', '17:55'),
+(32548, '21001', 1600, 'C', '17/05/2021', '16:37'),
+(32165, '51437', 1050, 'D', '25/04/2020', '15:48'),
+(78542, '02147', 300, 'D', '20/03/2019', '22:19'),
+(35412, '85214', 600, 'D', '07/12/2015', '20:14'),
+(54193, '96325', 800, 'D', '06/11/2012', '11:00'),
+(95124, '74125', 900, 'D', '23/10/2002', '9:00'),
+(54143, '85213', 2000, 'C', '11/09/1999', '7:30');
 
-
-select * from transacciones where tipo='D'
-select * from transacciones where mont>='200' and mont<= '2000'
-select (code,mont,tipo,fecha) from transacciones where fecha is not null
-
-update transacciones set tipo='T'where mont>='100' and mont<='500' 
-and fecha>='2023-01-01' and fecha<='2023-01-30' and hora>='14:00' and hora<='20:00'
+insert into transacciones(code, account_number, mont, tipo, hora)
+values(23210, '32015', 400, 'C', '13:55');
 
 select * from transacciones
 
-delete from transacciones where hora>='14:00' and hora<='18:00' and fecha>='2023-01-01' and fecha<='2023-01-30'
+insert into transacciones(code, account_number, mont, tipo, hora)values
+
+(232301, '22204', 450, 'C', '13:55');
+
+
+select * from transacciones where tipo='C' and account_number between '22201' and '22204'
+
+select * from transacciones where tipo='D' and fecha = '25/05/2023'
+and account_number between '22007' and '22010'
+
+select * from transacciones where code>=0 and code<60000 and account_number between '22002' and '22004'
+and fecha >= '26/05/2023' and fecha <='29/05/2023'

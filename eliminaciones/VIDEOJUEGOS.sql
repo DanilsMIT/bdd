@@ -9,24 +9,23 @@ create table videogames(
 	constraint videogames_PK primary key(code)
 )
 
-insert into videogames(code,nombre,detalles,valoracion) values
-(200, 'The Legend of Zelda: Breath of the Wild', 'Sale zelda y sale link.', 10),
-(201, 'God of War', 'Sale kratos.', 9),
-(202, 'Minecraft', 'Sale steve.', 8),
-(203, 'The Witcher 3: Wild Hunt', 'Sale ese man de pelo blanco.', 10),
-(204, 'Among Us', 'Soy un impostor.', 7);
+INSERT INTO videogames (code, nombre, detalles, valoracion) VALUES 
+(7563, 'Call of Duty', 'juego de terror', 9),
+(85421, 'Free Fire', 'juego de acción', 7),
+(93475, 'Call of Clans', 'juego de terror', 10),
+(15983, 'Fornite', 'juego de suspenso', 10),
+(54682, 'Tom and Jerry', 'juego de comedia', 8),
+(1456, 'Ajedrez', 'juego de psicología', 6),
+(70215, 'God of War', 'juego de aprendizaje', 7),
+(63240, 'Crash', 'juego de deporte', 9),
+(63549, 'Dragon Ball', 'juego de baile', 8);
 
-insert into videogames(code,nombre,valoracion) values
-(205, 'Final Fantasy VII Remake', 9),
-(206, 'Red Dead Redemption 2', 10),
-(207, 'DarkSouls II', 8);
+INSERT INTO videogames (code, nombre, valoracion) VALUES 
+(35784, 'Minecraft', 3);
 
-select * from videogames where nombre like 'C%'
-select * from videogames where valoracion >=9 and valoracion <= 10
-select * from videogames where detalles is null
-Descripción de los registros:
-
-update videogames set detalles='Mejor puntuado' where valoracion>9
 select * from videogames
 
-delete from videogames where valoracion<=7
+select * from videogames where nombre like '%C%' or valoracion=7
+select * from videogames where code >=3 and code <=7 or valoracion=7 
+select * from videogames where detalles like '%terror%' or detalles like '%acción%'
+and valoracion=7 and nombre like 'C%' or valoracion>8 and nombre like 'D%'

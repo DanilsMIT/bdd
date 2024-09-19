@@ -9,23 +9,20 @@ create table cuentas(
 	constraint cuentas_pk primary key(numero_cuenta)
 )
 
-insert into cuentas (numero_cuenta, ci_propietario, fecha_creacion, saldo) values
-('10001', '12345', '2023-01-15', 1500.00),
-('10002', '23456', '2023-02-20', 2000.50),
-('10003', '34567', '2023-03-10', 300.75),
-('10004', '45678', '2023-04-05', 15000.00),
-('10005', '56789', '2023-05-12', 2500.00),
-('10006', '67890', '2023-06-01', 1000.25),
-('10007', '78901', '2023-07-20', 750.30),
-('10008', '89012', '2023-08-15', 500.00),
-('10009', '90123', '2023-09-10', 1200.00),
-('10010', '01234', '2023-10-01', 900.50);
+INSERT INTO cuentas (numero_cuenta, ci_propietario, fecha_creacion, saldo) VALUES 
+('25569', '17504', '15/01/2030', 500),
+('25570', '17500', '01/11/2028', 600),
+('25571', '17501', '22/01/2023', 700),
+('25572', '17508', '30/05/2022', 800),
+('25573', '17509', '15/03/2023', 900),
+('25574', '17510', '15/05/2023', 1000),
+('25575', '17507', '15/09/2023', 1500),
+('25576', '17515', '15/10/2024', 2500),
+('25577', '17512', '15/08/2025', 3500),
+('25578', '17503', '15/06/2017', 4500);
 
-select (numero_cuenta,saldo) from cuentas
-select * from cuentas where fecha_creacion between ' 2023-07-18 ' and ' 2023-09-18 '
-select (numero_cuenta,saldo)from cuentas where fecha_creacion between ' 2023-07-18 ' and ' 2023-09-18 '
-
-update cuentas set saldo=10.00 where ci_propietario like '1%'
 select * from cuentas
 
-delete from cuentas where ci_propietario like '1%'
+select (numero_cuenta,saldo) from cuentas where saldo>'100' and saldo<'1000'
+select * from cuentas where fecha_creacion >='19/09/2023' and fecha_creacion <='19/09/2024'
+select * from cuentas where saldo='0' or ci_propietario like '%2'
