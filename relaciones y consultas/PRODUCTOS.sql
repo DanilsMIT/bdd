@@ -50,3 +50,11 @@ INSERT INTO Ventas (id_venta, code_product, fecha_venta, cantidad) VALUES
 (1010, 107, '2023-05-10', 2);
 
 select * from Ventas
+
+--Consulta de productos con la letra m o de descripcion null
+select p.nombre, p.stock, v.cantidad from Productos p, Ventas v
+where  p.codigo=v.code_product and p.detalles is null or p.codigo=v.code_product and p.nombre like '%m%' 
+
+--Consultas de ventas con cantidad igual a 5
+select p.nombre, p.stock from Productos p, Ventas v
+where  p.codigo=v.code_product and v.cantidad = 5

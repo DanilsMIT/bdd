@@ -50,3 +50,14 @@ INSERT INTO usuario (ci, nombre, lastname, tipo_cuenta, limite_credito) VALUES
 ('01234', 'Valeria', 'Torres', 'Corriente', 900.50);
 
 select * from usuario
+
+--Consulta de nombres de usuario con saldo entre 100 y 1000
+select cu.numero_cuenta, u.nombre FROM cuentas cu, usuario u
+where cu.ci_propietario = u.ci
+and cu.saldo BETWEEN '100' AND '1000';
+
+
+--Consulta de datos de cuentras creadas el 22 de sep del 2022 hasta el otro año
+select * from cuentas CU, usuario U 
+where CU.ci_propietario=U.ci
+and cu.fecha_creacion between '2022-09-22' and '2023-09-22'

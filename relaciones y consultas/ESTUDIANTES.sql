@@ -17,8 +17,8 @@ insert into students (CI, nombre, apellido, email, birth_date,code_teacher) valu
 ('2233445566', 'Ana', 'Pérez', 'ana.perez@example.com', '2001-04-05',1807),
 ('3344556677', 'Luis', 'Sánchez', 'luis.sanchez@example.com', '2002-05-12',1810),
 ('4455667788', 'Sofía', 'Ramírez', 'sofia.ramirez@example.com', '2000-06-01',1809),
-('5566778899', 'Diego', 'Hernández', 'diego.hernandez@example.com', '1997-07-20',1809),
-('6677889900', 'Clara', 'Fernández', 'clara.fernandez@example.com', '1996-08-15',1807);
+('5566778899', 'Diego', 'Hernández', 'diego.hernandez@example.com', '1997-07-20',1806),
+('6677889900', 'Clara', 'Fernández', 'clara.fernandez@example.com', '1996-08-15',1805);
 
 select * from students
 
@@ -41,3 +41,13 @@ add constraint teachers_students foreign key(code_teacher)
 references Profesores(code)
 
 select * from Profesores
+
+--Consulta de codigo de profe de los estudiantes que contengan n en su apellido
+select distinct prof.code,std.nombre,std.apellido from students std, Profesores prof
+where std.code_teacher=prof.code and std.apellido like '%n%'
+
+--Consulta de estudiantes del profe Francisco
+select distinct std.nombre,std.apellido from students std, Profesores prof
+where std.code_teacher=prof.code and prof.nombre like '%Francisco%'
+
+

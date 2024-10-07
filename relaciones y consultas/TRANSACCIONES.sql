@@ -50,3 +50,10 @@ VALUES
 select * from transacciones
 select * from bancos
 
+--Consulta transacciones de tipo C con nCuenta entre 22001 y 22004
+select * from transacciones t,banco b
+where t.code=b.codigo_transaccion and t.tipo='C' and t.account_number between '22001' and '22004'
+
+--Todas las transacciones de banco que comienza con 1
+select * from transacciones t,banco b
+where t.code=b.codigo_transaccion and  cast(b.codigo_banco as text) like '1%'

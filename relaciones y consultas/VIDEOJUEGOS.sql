@@ -39,10 +39,20 @@ references videogames(code)
 
 INSERT INTO plataformas (id_plataforma, plataforma, code_game) VALUES
 (1, 'Nintendo Switch', 200),   
-(2, 'PlayStation 4', 201),      
-(3, 'PC', 202),                
+(2, 'PlayStation 4', 207),      
+(3, 'PS5', 201),                
 (4, 'Xbox One', 203),          
 (5, 'PC', 204),               
 (6, 'Nintendo Switch', 204),   
 (7, 'PC', 200),                
-(9, 'Xbox Series X', 201);                  
+(9, 'Xbox Series X', 202);                  
+
+--Consulta de juegos y sus plataformas con nombre que contenga C y valoracion desde 7 o D y valoracion desde 8
+select distinct vj.nombre,vj.detalles,vj.valoracion,plf.plataforma from videogames vj,plataformas plf
+where vj.code=plf.code_game and vj.nombre like '%C%' and vj.valoracion>=7 
+or vj.code=plf.code_game and vj.nombre like '%D%' and vj.valoracion>=8
+or vj.code=plf.code_game and vj.detalles like 'Guerra'
+
+--Consulta de la plataforma de god of war
+select plf.* from videogames vj,plataformas plf
+where vj.code=plf.code_game and vj.nombre like 'God of War'

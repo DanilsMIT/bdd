@@ -41,3 +41,11 @@ INSERT INTO clientes (ci, nombre, apellido) VALUES
 
 select * from compras
 select * from clientes
+
+--Consulta de nombre y apellido de clientes con 7 en la cedula
+select distinct cl.nombre, cl.apellido from Compras cmpr,clientes cl
+where cmpr.cedula_comprador=cl.ci and cl.ci like '%7%'
+
+--Consulta de clientes con el nombre Mónica
+select * from Compras cmpr,clientes cl
+where cmpr.cedula_comprador=cl.ci and cl.nombre like 'Mónica'

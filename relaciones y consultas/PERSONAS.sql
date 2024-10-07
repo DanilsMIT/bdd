@@ -53,4 +53,10 @@ insert into prestamo (cedulaP, monto, fecha_prestamo, hora_prestamo, garante) va
 select * from persona
 select * from prestamo
 
+--Cantidad ahorrada, monto y garante de prestamos entre 100 y 1000
+select p.cantidad_ahorrada,pr.monto,pr.garante from persona p, prestamo pr
+where p.cedula=pr.cedulaP and pr.monto between '100' and '1000'
 
+--Datos de la persona con el nombre Sean
+select * from persona p, prestamo pr
+where p.cedula=pr.cedulaP and p.nombre like 'Sean'
