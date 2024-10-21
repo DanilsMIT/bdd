@@ -4,11 +4,21 @@ create table persona (
     nombre varchar(50) not null,
     apellido varchar(50) not null,
     estatura decimal(10, 2),
-    fecha_nacimiento date not null,
+	estado_civil char(1) not null,
+	numero_hijos int,
+    fecha_nacimiento date,
     hora_nacimiento time,
     cantidad_ahorrada money,
-    numero_hijos int,
-	constraint personaPK primary key(cedula)
+	constraint personaPK primary key(cedula),
+	constraint persona_CodeCivil_fk foreign key (estado_civil) 
+	references codigo_civil(code)
+)
+
+drop table codigo_civil
+create table codigo_civil(
+	code char(1) not null,
+	detalle varchar(20) not null,
+	constraint codigo_civil_pk primary key(code)
 )
 
 drop table prestamo
@@ -21,11 +31,7 @@ create table prestamo (
 	constraint prestamos primary key(cedulaP)
 )
 
-alter table prestamo
-add constraint persona_prestamoFK foreign key(cedulaP)
-references persona(cedula)
-
-insert into persona (cedula, nombre, apellido, estatura, fecha_nacimiento, hora_nacimiento, cantidad_ahorrada, numero_hijos) values
+insert into persona (cedula, nombre, apellido, estatura,estado_civil ,numero_hijos, fecha_nacimiento, hora_nacimiento, cantidad_ahorrada) values
 ('1234567890', 'Juan', 'Pérez', 1.75, '1990-05-15', '08:30:00', 1500.00, 2),
 ('2345678901', 'María', 'Gómez', 1.62, '1985-08-27', '09:00:00', 2000.00, 1),
 ('3456789012', 'Luis', 'Martínez', 1.80, '1992-01-10', '10:00:00', 1200.50, 0),
@@ -37,6 +43,10 @@ insert into persona (cedula, nombre, apellido, estatura, fecha_nacimiento, hora_
 ('9012345678', 'Sofía', 'Torres', 1.60, '1994-02-02', '15:00:00', 1100.00, 1),
 ('0123456789', 'Javier', 'Cruz', 1.78, '1990-09-30', '16:00:00', 2000.00, 0);
 
+insert into codigo_civil(code,detalle) values
+('U','Union libre'),
+('C','Casado'),
+('S','Soltero')
 
 insert into prestamo (cedulaP, monto, fecha_prestamo, hora_prestamo, garante) values
 ('6789012345', 780.00, '2023-06-20', '10:00:00', 'Luis Martínez'),
@@ -53,6 +63,8 @@ insert into prestamo (cedulaP, monto, fecha_prestamo, hora_prestamo, garante) va
 select * from persona
 select * from prestamo
 
+update persona set nombre = 'GENERAL'
+where cedula='6990453734'
 --Cantidad ahorrada, monto y garante de prestamos entre 100 y 1000
 select p.cantidad_ahorrada,pr.monto,pr.garante from persona p, prestamo pr
 where p.cedula=pr.cedulaP and pr.monto between '100' and '1000'

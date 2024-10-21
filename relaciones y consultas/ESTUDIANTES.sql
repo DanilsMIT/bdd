@@ -4,9 +4,9 @@ create table students(
 	CI char(10) not null,
 	nombre varchar(50) not null,
 	apellido varchar(50) not null,
-	email varchar(50) not null,
+	email varchar(50) ,
 	birth_date date,
-	code_teacher int,
+	code_teacher int not null,
 	constraint students_pk primary key(CI)
 )
 
@@ -24,7 +24,7 @@ select * from students
 
 drop table Profesores
 create table Profesores(
-	code int,
+	code int not null,
 	nombre varchar(50) not null,
 	constraint ProfesoresPK primary key(code)
 )
